@@ -21,20 +21,20 @@ doc
  .formText(locale.pgDetail.name, 60, 10, 80, 10, { parent: pgStats, value: '' });
 doc
  .text(locale.pgDetail.origin, 145, 10, 0, 0, { lineBreak : false })
- .formText(locale.pgDetail.origin, 190, 10, 80, 10, { parent: pgStats, value: '' });
+ .formCombo(locale.pgDetail.origin, 190, 10, 80, 10, { parent: pgStats, value: '', defaultValue: '', select: locale.pgDetail.originList, multiSelect:false, edit:true, sort:true });
 doc
  .text(locale.pgDetail.aptitude, 275, 10, 0, 0, { lineBreak : false })
- .formText(locale.pgDetail.aptitude, 330, 10, 80, 10, { parent: pgStats, value: '' });
+ .formCombo(locale.pgDetail.aptitude, 330, 10, 80, 10, { parent: pgStats, value: '', defaultValue: '', select: locale.pgDetail.aptitudeList, multiSelect:false, edit:true, sort:true });
 
 doc
  .text(locale.pgDetail.series, 5, 25, 0, 0, { lineBreak : false })
  .formText(locale.pgDetail.series, 60, 25, 80, 10, { parent: pgStats, value: '' });
 doc
  .text(locale.pgDetail.nature, 145, 25, 0, 0, { lineBreak : false })
- .formText(locale.pgDetail.nature, 190, 25, 80, 10, { parent: pgStats, value: '' });
+ .formCombo(locale.pgDetail.nature, 190, 25, 80, 10, { parent: pgStats, value: '', defaultValue: '', select: locale.pgDetail.natureList, multiSelect:false, edit:true, sort:true });
 doc
  .text(locale.pgDetail.allegiance, 275, 25, 0, 0, { lineBreak : false })
- .formText(locale.pgDetail.allegiance, 330, 25, 80, 10, { parent: pgStats, value: '' });
+ .formCombo(locale.pgDetail.allegiance, 330, 25, 80, 10, { parent: pgStats, value: '', defaultValue: '', select: locale.pgDetail.allegianceList, multiSelect:false, edit:true, sort:true });
 
 Draw.HorizontalLine(doc, 40);
 // doc.moveTo(doc.page.margins.left, 15).lineTo(doc.page.width - doc.page.margins.right, 15).stroke();

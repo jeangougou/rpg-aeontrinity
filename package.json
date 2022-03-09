@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sheet": "node genCharacterSheet.js"
+    "sheet": "node genCharacterSheet.js",
+    "charSheet": "node pdfLibCharSheet.js",
+    "error": "exit 22"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "pdf-lib": "^1.17.1",
     "pdfkit": "^0.13.0"
   }
 }

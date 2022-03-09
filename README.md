@@ -9,11 +9,11 @@ To install node on windows use Chocolatey and nvm.
 ## Usage 
 
 ```
-npm install
-
+> npm install
 // generates the character sheet in pdf
-npm run sheet
+> npm run charSheet
 ```
 
+the other command, `npm run sheet`, is obsolete as the pdf library selected for this doesn't handle radio and checkboxes
 
 
