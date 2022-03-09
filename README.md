@@ -14,6 +14,3 @@ To install node on windows use Chocolatey and nvm.
 > npm run charSheet
 ```
 
-the other command, `npm run sheet`, is obsolete as the pdf library selected for this doesn't handle radio and checkboxes
-
-
