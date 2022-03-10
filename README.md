@@ -14,3 +14,16 @@ To install node on windows use Chocolatey and nvm.
 > npm run charSheet
 ```
 
+TODO:::
+
+- [nice2Have] upgrade fonts with something futuristic
+    https://www.1001fonts.com/futuristic+google-web-fonts.html
+    https://superdevresources.com/techno-sci-fi-fonts/
+
+- 
+
+
+
+references
+- https://blog.logrocket.com/managing-pdfs-node-pdf-lib/
+- https://pdf-lib.js.org/

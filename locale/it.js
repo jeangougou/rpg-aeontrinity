@@ -1,4 +1,5 @@
 module.exports = {
+  customString: "_________",
   pgDetail: {
     __title: "Dettaglio Personaggio",
     name: "Nome",
@@ -21,12 +22,71 @@ module.exports = {
   physicals: {
     __title: "Physical",
     strength: "Strength",
+    strengthSkills: {
+      brawl: 'Brawl',
+      might: "Might",
+    },
+    dexterity: "Dexterity",
+    dexteritySkills: {
+      athletics: "Athletics",
+      drive: "Drive",
+      firearms: "Firearms",
+      legerdemain: "Legerdemain",
+      martialarts: "Martial Arts",
+      melee: "Melee",
+      pilot: "Pilot",
+      stealth: "Stealth"
+    },
+    stamina: "Stamina",
+    staminaSkills: {
+      endurance: "Endurance",
+      resistance: "Resistance"
+    }
   },
   mentals: {
     __title: "Mental",
+    perception: "Perception",
+    perceptionSkills: {
+      awareness: "Awareness",
+      investigation: "Investigation",
+    },
+    intelligence: "Intelligence",
+    intelligenceSkills: {
+      academics: "Academics",
+      bureaucracy: "Bureaucracy",
+      engineering: "Engineering",
+      intrusion: "Intrusion",
+      linguistics: "Linguistics",
+      medicine: "Medicine",
+      science: "Science",
+      surival: "Survival"
+    },
+    wits: "Wits",
+    witsSkills: {
+      arts: "Arts",
+      meditation: "Meditation",
+      rapport: "Rapport"
+    }
   },
   socials: {
     __title: "Social",
+    appearance: "Appearance",
+    appearanceSkills: {
+      intimidation: "Intimidation",
+      style: "Style"
+    },
+    manipulation: "Manipulation",
+    manipulationSkills: {
+      command: "Command",
+      interrogation: "Interrogation",
+      subterfug: "Subterfuge"
+    },
+    charisma: "Charisma",
+    charismaSkills: {
+      etiquette: "Etiquette",
+      perform: "Perform",
+      savvy: "Savvy"
+    }
   },
 
   zzEnd: 0
