@@ -12,6 +12,8 @@ module.exports = {
     natureList: ['', 'Analyst', 'Architect', 'Bravo', 'Bureaucrat', 'Caregiver', 'Competitor', 'Confidant', 'Conniver', 'Critic', 'Cynic', 'Explorer', 'Fanatic', 'Follower', 'Gallant', 'Hedonist', 'Innocent', 'Jester', 'Judge', 'Leader', 'Martyr', 'Monster', 'Perfectionist', 'Psion', 'Rebel', 'Survivor', 'Thrillseeker', 'Traditionalist', 'Visionary', 'Unwilling Psion', 'Xenophile'],
     allegiance: "Affiliazione",
     allegianceList: ['', 'Aesculapians', 'ISRA', 'The Legions', 'The Ministry', 'Norça', 'Orgotek', 'Aeon Trinity'],
+    player: "Giocatore",
+    experience: "Esperienza",
   },
   dots: {
     noneToFive: ['', 'o', 'oo', 'ooo', 'oooo', 'ooooo'],
@@ -25,6 +27,7 @@ module.exports = {
     strengthSkills: {
       brawl: 'Brawl',
       might: "Might",
+      heavyWeapons: "Heavy Weap",
     },
     dexterity: "Dexterity",
     dexteritySkills: {
@@ -35,7 +38,8 @@ module.exports = {
       martialarts: "Martial Arts",
       melee: "Melee",
       pilot: "Pilot",
-      stealth: "Stealth"
+      stealth: "Stealth",
+      varg: "Varg",
     },
     stamina: "Stamina",
     staminaSkills: {
@@ -49,6 +53,9 @@ module.exports = {
     perceptionSkills: {
       awareness: "Awareness",
       investigation: "Investigation",
+      artillery: "Artillery",
+      demolitions: "Demolitions",
+      navigation: "Navigation",
     },
     intelligence: "Intelligence",
     intelligenceSkills: {
@@ -59,13 +66,19 @@ module.exports = {
       linguistics: "Linguistics",
       medicine: "Medicine",
       science: "Science",
-      surival: "Survival"
+      surival: "Survival",
+      astrophysics: "Astrophysics",
+      computer: "Computer",
+      militaryScience: "Military Science",
+      noetics: "Noetics",
+      xenology: "Xenology",
     },
     wits: "Wits",
     witsSkills: {
       arts: "Arts",
       meditation: "Meditation",
-      rapport: "Rapport"
+      rapport: "Rapport",
+      gunnery: "Gunnery"
     }
   },
   socials: {
@@ -79,15 +92,30 @@ module.exports = {
     manipulationSkills: {
       command: "Command",
       interrogation: "Interrogation",
-      subterfug: "Subterfuge"
+      subterfug: "Subterfuge",
+      xenorelations: "Xenorelations",
     },
     charisma: "Charisma",
     charismaSkills: {
       etiquette: "Etiquette",
       perform: "Perform",
-      savvy: "Savvy"
-    }
+      savvy: "Savvy",
+      instruction: "Instruction",
+      sentienceRelations: "Sentience Rel",
+    },
   },
-
+  health:{
+    __title: "Health",
+    healtLevels: {
+      bruised:"Bruised",
+      hurt: "Hurt",
+      injured: "Injured",
+      wounded: "Wounded",
+      maimed: "Maimed",
+      crippled: "Crippled",
+      incapacitated:"Incapacitated",
+      dead: "Dead",
+    },
+  },
   zzEnd: 0
 };

@@ -53,6 +53,17 @@ const hline= (page, y, color, thickness) => {
   page.drawLine({start: {x:0,y}, end: {x: page.getWidth(), y}, color, thickness});
 };
 
+const checkBox= (page, form, baseX, baseY, fieldName) => {
+  const checkBox = form.createCheckBox(fieldName)
+  checkBox.addToPage(page, {
+    x: baseX,
+    y: baseY,
+    width: 10,
+    height: 10,
+    // borderWidth: 0.3,
+  })
+};
+
 module.exports = {
   dropDown,
   drawTextBox,
@@ -60,5 +71,6 @@ module.exports = {
   drawSkill,
   drawCustomSkill,
   metadata,
-  hline
+  hline,
+  checkBox
 }

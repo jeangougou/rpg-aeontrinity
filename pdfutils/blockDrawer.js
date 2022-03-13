@@ -38,10 +38,36 @@ const pgDetails= (page, form, locale, baseX, baseY) => {
   // aptitude
   page.drawText(locale.allegiance, { x: baseX+270, y: baseY-15 })//, size: 8
   u.dropDown(page, form, 'pgDetail.allegiance', locale.allegianceList, { x: baseX+320, y: baseY-17})
+
+  // player
+  page.drawText(locale.player, { x: baseX, y: baseY-30 })//, size: 8
+  u.drawTextBox(page, form, 'pgDetail.player', { x: baseX + 50, y: baseY-32, height: 10, width: 80, borderWidth: 0 })
+  // exp
+  page.drawText(locale.experience, { x: baseX+ 140, y: baseY-30 })//, size: 8
+  u.drawTextBox(page, form, 'pgDetail.experience.current', { x: baseX + 200, y: baseY-30, height: 10, width: 40, borderWidth: 0 })
+  page.drawText("/", { x: baseX+ 241, y: baseY-30 })//, size: 8
+  u.drawTextBox(page, form, 'pgDetail.experience.total', { x: baseX + 244, y: baseY-30, height: 10, width: 40, borderWidth: 0 })
+};
+const drawPsionHealthLevel= (page, form, locale, baseX, baseY, malusLevels) => {
+  let lastY = baseY;
+
+  const keys = Object.keys(locale);
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    page.drawText(locale[key], { x: baseX, y: baseY-(15*(i+1)) })
+    page.drawText(`${malusLevels[i]}`, { x: baseX+70, y: baseY-(15*(i+1)) })
+
+    u.checkBox(page, form, baseX+95, baseY-(15*(i+1)), `health.level.${key}.bruised`);
+    u.checkBox(page, form, baseX+110, baseY-(15*(i+1)), `health.level.${key}.lethal`);
+    lastY = baseY-15*(keys.length+i+1)
+  }
+  // healtLevels
+  return lastY
 };
 module.exports = {
   pgDetails,
   drawAttributeAndSkillBlock,
-  
+  drawPsionHealthLevel,
+
   _noop: () =>{}
 };
