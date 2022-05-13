@@ -1,4 +1,7 @@
 const { rgb }= require('pdf-lib');
+const config = require('./config.js');
+const locale = require(`../locale/${config.LOCALE}.js`);
+
 const dropDown = (page, form, dropDownName, optionsList, opts) => {
   const dropdown = form.createDropdown(dropDownName)
   dropdown.addOptions(optionsList)
@@ -11,30 +14,32 @@ const dropDown = (page, form, dropDownName, optionsList, opts) => {
   return dropdown;
 }
 
+const COLORS= {
+  BLACK: rgb(0.11, 0.11, 0.11),
+  DARK_GRAY: rgb(0.44, 0.44, 0.44),
+}
+
 const drawTextBox= (page, form, fieldName, opts) => {
   textBox = form.createTextField(fieldName)
   textBox.setText(opts.selected)
   textBox.addToPage(page, { height: 10, width: 80, ...opts })
 };
 
-const drawAttribute= (page, form, title, baseX, baseY, ddId, ddlOpts) => {
-  page.drawText(title, { x: baseX, y: baseY, size: 10 , color: rgb(0.11, 0.11, 0.11) })
-  drawTextBox(page, form, `${ddId}Specialty`, { x: baseX+60, y: baseY, height:8, width: 50, size:8, borderWidth: 0 })
-  dropDown(page, form, ddId, ddlOpts, {selected: 'o', x: baseX+115, y: baseY, width: 30, color: rgb(0.66, 0.66, 0.66)})
+const drawHumanAttribute= (page, form, title, baseX, baseY, ddId) => {
+  page.drawText(title, { x: baseX, y: baseY, size: 8, color: COLORS.BLACK })
+  dropDown(page, form, ddId, locale.dots.oneToFive, {selected: 'o', x: baseX+50, y: baseY, width: 30, color: COLORS.DARK_GRAY})
 };
 
-const drawSkill= (page, form, baseX, baseY, dots, title, category) => {
+const drawHumanSkill= (page, form, baseX, baseY, dots, title, category) => {
   const fieldName = `${category}.${title.toLowerCase()}`;
-  page.drawText(title, { x: baseX, y: baseY, size: 8 , color: rgb(0.66, 0.66, 0.66) })
-  drawTextBox(page, form, `${fieldName}Speciality`, { x: baseX + 50, y: baseY, height:8, width: 60, size:8, borderWidth: 0})
-  dropDown(page, form, fieldName, dots, {selected: 'o', x: baseX+115, y: baseY, width: 28, color: rgb(0.66, 0.66, 0.66)})
+  page.drawText(title, { x: baseX, y: baseY, size: 8 , color: COLORS.DARK_GRAY })
+  dropDown(page, form, fieldName, dots, {selected: '', x: baseX+50, y: baseY, width: 28, color: COLORS.DARK_GRAY})
 };
 
-const drawCustomSkill= (page, form, baseX, baseY, dots, title, index, category) => {
+const drawHumanCustomSkill= (page, form, baseX, baseY, dots, title, index, category) => {
   const fieldName = `${category}.${title.toLowerCase()}${index}`;
-  page.drawText(title, { x: baseX, y: baseY, size: 8 , color: rgb(0.66, 0.66, 0.66) })
-  drawTextBox(page, form, `${fieldName}Speciality`, { x: baseX + 50, y: baseY, height:8, width: 60, size:8, borderWidth: 0})
-  dropDown(page, form, fieldName, dots, {selected: 'o', x: baseX+115, y: baseY, width: 28, color: rgb(0.66, 0.66, 0.66)})
+  page.drawText(title, { x: baseX, y: baseY, size: 8 , color: COLORS.DARK_GRAY })
+  dropDown(page, form, fieldName, dots, {selected: '', x: baseX+50, y: baseY, width: 28, color: COLORS.DARK_GRAY})
 };
 
 const metadata= (doc) => {
@@ -67,9 +72,9 @@ const checkBox= (page, form, baseX, baseY, fieldName) => {
 module.exports = {
   dropDown,
   drawTextBox,
-  drawAttribute,
-  drawSkill,
-  drawCustomSkill,
+  drawHumanAttribute,
+  drawHumanSkill,
+  drawHumanCustomSkill,
   metadata,
   hline,
   checkBox

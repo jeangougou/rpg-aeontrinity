@@ -7,9 +7,9 @@ const blockDrawer = require('./pdfutils/blockDrawer.js');
 
 const Layout = {
   col1x: 10,
-  col2x: 160,
-  col3x: 310,
-  col4x: 460,
+  col2x: 110,
+  col3x: 220,
+  col4x: 310,
 
 
   yTopHeader: (page) => {return page.getHeight() - 18;},
@@ -37,22 +37,32 @@ async function run() {
   // skills
   page.drawText(locale.physicals.__title, { x: Layout.col1x, y: Layout.yRowSkillCategory(page), color: rgb(0.66, 0.66, 0.66) })
   let lastY=0;
-  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.physicals.strength, Layout.col1x, Layout.yRowSkills(page), 'physicals.strength', locale.dots.oneToFive, locale.dots.oneToFive, locale.customString, locale.physicals.strengthSkills, 1);
-  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.physicals.dexterity, Layout.col1x, lastY-15, 'physicals.dexterity', locale.dots.oneToFive, locale.dots.oneToFive, locale.customString, locale.physicals.dexteritySkills, 1);
-  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.physicals.stamina, Layout.col1x, lastY-15, 'physicals.stamina', locale.dots.oneToFive, locale.dots.oneToFive, locale.customString, locale.physicals.staminaSkills, 1);
+  lastY =  blockDrawer.drawAttributeAndSkillBlock(
+    page, //page
+    form, //form
+    locale.physicals.strength, //attributeName
+    Layout.col1x, //baseX
+    Layout.yRowSkills(page), //baseY
+    'physicals.strength', //attributeId
+    locale.customString, // customStringPlaceHolder
+    locale.physicals.strengthSkills, // skillNamesArr
+    1 //customSkillsNumber
+  );
+  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.physicals.dexterity, Layout.col1x, lastY-15, 'physicals.dexterity', locale.customString, locale.physicals.dexteritySkills, 1);
+  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.physicals.stamina, Layout.col1x, lastY-15, 'physicals.stamina', locale.customString, locale.physicals.staminaSkills, 1);
 
   page.drawText(locale.mentals.__title, { x: Layout.col2x, y: Layout.yRowSkillCategory(page), color: rgb(0.66, 0.66, 0.66) })
   lastY = 0;
-  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.mentals.perception, Layout.col2x, Layout.yRowSkills(page), 'mentals.perception', locale.dots.oneToFive, locale.dots.oneToFive, locale.customString, locale.mentals.perceptionSkills, 1);
-  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.mentals.intelligence, Layout.col2x, lastY-15, 'mentals.intelligence', locale.dots.oneToFive, locale.dots.oneToFive, locale.customString, locale.mentals.intelligenceSkills, 1);
-  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.mentals.wits, Layout.col2x, lastY-15, 'mentals.wits', locale.dots.oneToFive, locale.dots.oneToFive, locale.customString, locale.mentals.witsSkills, 1);
+  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.mentals.perception, Layout.col2x, Layout.yRowSkills(page), 'mentals.perception',  locale.customString, locale.mentals.perceptionSkills, 1);
+  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.mentals.intelligence, Layout.col2x, lastY-15, 'mentals.intelligence',  locale.customString, locale.mentals.intelligenceSkills, 1);
+  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.mentals.wits, Layout.col2x, lastY-15, 'mentals.wits', locale.customString, locale.mentals.witsSkills, 1);
 
 
   page.drawText(locale.socials.__title, { x: Layout.col3x, y: Layout.yRowSkillCategory(page), color: rgb(0.66, 0.66, 0.66) })
   lastY = 0;
-  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.socials.appearance, Layout.col3x, Layout.yRowSkills(page), 'socials.appearance', locale.dots.oneToFive, locale.dots.oneToFive, locale.customString, locale.socials.appearanceSkills, 1);
-  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.socials.manipulation, Layout.col3x, lastY-15, 'socials.manipulation', locale.dots.oneToFive, locale.dots.oneToFive, locale.customString, locale.socials.manipulationSkills, 1);
-  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.socials.charisma, Layout.col3x, lastY-15, 'socials.charisma', locale.dots.oneToFive, locale.dots.oneToFive, locale.customString, locale.socials.charismaSkills, 1);
+  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.socials.appearance, Layout.col3x, Layout.yRowSkills(page), 'socials.appearance',  locale.customString, locale.socials.appearanceSkills, 1);
+  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.socials.manipulation, Layout.col3x, lastY-15, 'socials.manipulation',  locale.customString, locale.socials.manipulationSkills, 1);
+  lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.socials.charisma, Layout.col3x, lastY-15, 'socials.charisma',  locale.customString, locale.socials.charismaSkills, 1);
 
   // health
   page.drawText(locale.health.__title, { x: Layout.col4x, y: Layout.yRowSkillCategory(page), color: rgb(0.66, 0.66, 0.66) })

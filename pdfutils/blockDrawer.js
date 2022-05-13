@@ -1,15 +1,18 @@
 const u = require('./u.js');
+const config = require('./config.js');
+const locale = require(`../locale/${config.LOCALE}.js`);
 
-const drawAttributeAndSkillBlock = (page, form, attributeName, baseX, baseY, attributeId, attributeDots, skillDots, customStringPlaceholder, skillNamesArr, customSkillsNumber) => {
+
+const drawAttributeAndSkillBlock = (page, form, attributeName, baseX, baseY, attributeId, customStringPlaceholder, skillNamesArr, customSkillsNumber) => {
   let lastY = baseY;
-  u.drawAttribute(page, form, attributeName, baseX, baseY, `${attributeId}Speciality`, attributeId, attributeDots);
+  u.drawHumanAttribute(page, form, attributeName, baseX, baseY, `${attributeId}Speciality`, attributeId);
   const keys = Object.keys(skillNamesArr);
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
-    u.drawSkill(page, form, baseX, baseY-(15*(i+1)), skillDots, skillNamesArr[key], `${attributeId}Skills`);
+    u.drawHumanSkill(page, form, baseX, baseY-(15*(i+1)), locale.dots.noneToFive, skillNamesArr[key], `${attributeId}Skills`);
   }
   for (let i=0; i<customSkillsNumber; i++){
-    u.drawCustomSkill(page, form, baseX, baseY-15*(keys.length+i+1), skillDots, customStringPlaceholder, i, `${attributeId}Skills`);
+    u.drawHumanCustomSkill(page, form, baseX, baseY-15*(keys.length+i+1), locale.dots.noneToFive, customStringPlaceholder, i, `${attributeId}Skills`);
     lastY = baseY-15*(keys.length+i+1)
   }
   return lastY
