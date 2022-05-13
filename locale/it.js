@@ -11,7 +11,7 @@ module.exports = {
     nature: "Natura",
     natureList: ['', 'Analyst', 'Architect', 'Bravo', 'Bureaucrat', 'Caregiver', 'Competitor', 'Confidant', 'Conniver', 'Critic', 'Cynic', 'Explorer', 'Fanatic', 'Follower', 'Gallant', 'Hedonist', 'Innocent', 'Jester', 'Judge', 'Leader', 'Martyr', 'Monster', 'Perfectionist', 'Psion', 'Rebel', 'Survivor', 'Thrillseeker', 'Traditionalist', 'Visionary', 'Unwilling Psion', 'Xenophile'],
     allegiance: "Affiliazione",
-    allegianceList: ['', 'Aesculapians', 'ISRA', 'The Legions', 'The Ministry', 'Norça', 'Orgotek', 'Aeon Trinity'],
+    allegianceList: ['', 'Aesculapians', 'ISRA', 'The Legions', 'The Ministry', 'Norça', 'Orgotek', 'Aeon Trinity', 'Upeo (Blinker)'],
     player: "Giocatore",
     experience: "Esperienza",
   },
@@ -116,6 +116,10 @@ module.exports = {
       incapacitated:"Incapacitated",
       dead: "Dead",
     },
+  },
+  backgrounds:{
+    __title: "Backgrounds",
+    backgroundList: ['', "Allies", "Cipher", "Citizenship","Clearance","Contacts", "Devices", "Followers", "Identity", "Influence", "Mentor", "Requisition", "Resources", "Status"]
   },
   zzEnd: 0
 };

@@ -42,6 +42,12 @@ const drawHumanCustomSkill= (page, form, baseX, baseY, dots, title, index, categ
   dropDown(page, form, fieldName, dots, {selected: '', x: baseX+50, y: baseY, width: 28, color: COLORS.DARK_GRAY})
 };
 
+const drawBackground = (page, form, baseX, baseY, title, index, category) => {
+  const fieldName = `${category}.${title.toLowerCase()}${index}`;
+  dropDown(page, form, `${fieldName}.ddl`, locale.backgrounds.backgroundList, { x: baseX, y: baseY, width: 50})
+  dropDown(page, form, `${fieldName}.dots`, locale.dots.noneToFive, {selected: '', x: baseX+70, y: baseY, width: 28, color: COLORS.DARK_GRAY})
+};
+
 const metadata= (doc) => {
   // Note that these fields are visible in the "Document Properties" section of most PDF readers.
   doc.setTitle('Æon Trinity Character sheet ')
@@ -75,7 +81,9 @@ module.exports = {
   drawHumanAttribute,
   drawHumanSkill,
   drawHumanCustomSkill,
+  drawBackground,
   metadata,
   hline,
-  checkBox
+  checkBox,
+  COLORS
 }

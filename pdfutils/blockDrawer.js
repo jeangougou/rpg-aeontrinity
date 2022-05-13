@@ -67,10 +67,20 @@ const drawPsionHealthLevel= (page, form, locale, baseX, baseY, malusLevels) => {
   // healtLevels
   return lastY
 };
+
+const drawBackgrounds= (page, form, localisedBgsArr, baseX, baseY, keysLength) => {
+  let lastY = baseY;
+  for (let i = 0; i < keysLength; i++) {
+    u.drawBackground(page, form, baseX, baseY-(15*(i+1)), localisedBgsArr[i], `bg`);
+    lastY = baseY-15*(keysLength+i+1)
+  }
+  return lastY
+};
 module.exports = {
   pgDetails,
   drawAttributeAndSkillBlock,
   drawPsionHealthLevel,
-
+  drawBackgrounds,
+  COLORS: u.COLORS,
   _noop: () =>{}
 };

@@ -11,7 +11,6 @@ const Layout = {
   col3x: 220,
   col4x: 310,
 
-
   yTopHeader: (page) => {return page.getHeight() - 18;},
   yLineTopHeaderSeparator: (page) => {return page.getHeight() - 54;},
   yRowSkillCategory:  (page) => {return page.getHeight() - 65;},
@@ -32,10 +31,10 @@ async function run() {
 
   // top section
   blockDrawer.pgDetails(page, form, locale.pgDetail, Layout.col1x, Layout.yTopHeader(page));
-  u.hline(page, Layout.yLineTopHeaderSeparator(page), rgb(0.66, 0.66, 0.66));
+  u.hline(page, Layout.yLineTopHeaderSeparator(page), blockDrawer.COLORS.DARK_GRAY);
 
   // skills
-  page.drawText(locale.physicals.__title, { x: Layout.col1x, y: Layout.yRowSkillCategory(page), color: rgb(0.66, 0.66, 0.66) })
+  page.drawText(locale.physicals.__title, { x: Layout.col1x, y: Layout.yRowSkillCategory(page), color: blockDrawer.COLORS.DARK_GRAY })
   let lastY=0;
   lastY =  blockDrawer.drawAttributeAndSkillBlock(
     page, //page
@@ -51,23 +50,28 @@ async function run() {
   lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.physicals.dexterity, Layout.col1x, lastY-15, 'physicals.dexterity', locale.customString, locale.physicals.dexteritySkills, 1);
   lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.physicals.stamina, Layout.col1x, lastY-15, 'physicals.stamina', locale.customString, locale.physicals.staminaSkills, 1);
 
-  page.drawText(locale.mentals.__title, { x: Layout.col2x, y: Layout.yRowSkillCategory(page), color: rgb(0.66, 0.66, 0.66) })
+  page.drawText(locale.mentals.__title, { x: Layout.col2x, y: Layout.yRowSkillCategory(page), color: blockDrawer.COLORS.DARK_GRAY })
   lastY = 0;
   lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.mentals.perception, Layout.col2x, Layout.yRowSkills(page), 'mentals.perception',  locale.customString, locale.mentals.perceptionSkills, 1);
   lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.mentals.intelligence, Layout.col2x, lastY-15, 'mentals.intelligence',  locale.customString, locale.mentals.intelligenceSkills, 1);
   lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.mentals.wits, Layout.col2x, lastY-15, 'mentals.wits', locale.customString, locale.mentals.witsSkills, 1);
 
 
-  page.drawText(locale.socials.__title, { x: Layout.col3x, y: Layout.yRowSkillCategory(page), color: rgb(0.66, 0.66, 0.66) })
+  page.drawText(locale.socials.__title, { x: Layout.col3x, y: Layout.yRowSkillCategory(page), color: blockDrawer.COLORS.DARK_GRAY })
   lastY = 0;
   lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.socials.appearance, Layout.col3x, Layout.yRowSkills(page), 'socials.appearance',  locale.customString, locale.socials.appearanceSkills, 1);
   lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.socials.manipulation, Layout.col3x, lastY-15, 'socials.manipulation',  locale.customString, locale.socials.manipulationSkills, 1);
   lastY = blockDrawer.drawAttributeAndSkillBlock(page, form, locale.socials.charisma, Layout.col3x, lastY-15, 'socials.charisma',  locale.customString, locale.socials.charismaSkills, 1);
+// =========================
 
   // health
-  page.drawText(locale.health.__title, { x: Layout.col4x, y: Layout.yRowSkillCategory(page), color: rgb(0.66, 0.66, 0.66) })
+  page.drawText(locale.health.__title, { x: Layout.col4x, y: Layout.yRowSkillCategory(page), color: blockDrawer.COLORS.DARK_GRAY })
   lastY = 0;
-  lastY = blockDrawer.drawPsionHealthLevel(page, form, locale.health.healtLevels, Layout.col4x, Layout.yRowSkills(page), [0,-1,-1,-2,-3,-4,'','']);
+  lastY = blockDrawer.drawPsionHealthLevel(page, form, locale.health.healtLevels, Layout.col4x, Layout.yRowSkills(page)+15, [0,-1,-1,-2,-3,-4,'','']);
+
+  // backgrounds
+  page.drawText(locale.backgrounds.__title, { x: Layout.col4x, y: lastY+100, color: blockDrawer.COLORS.DARK_GRAY });
+  lastY = blockDrawer.drawBackgrounds(page, form, locale.backgrounds.backgroundList, Layout.col4x, lastY+95, 7);
 
   u.metadata(doc);
   // Write the PDF to a file
